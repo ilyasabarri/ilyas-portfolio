@@ -1,0 +1,40 @@
+<div class="page-container animate-in">
+  <div class="page-label">// experience</div>
+  <div class="section-eyebrow">{{ lang.lang() === 'en' ? 'MY JOURNEY' : 'MON PARCOURS' }}</div>
+  <h2>{{ lang.lang() === 'en' ? 'Work' : 'Expérience' }} <span class="grad-section">{{ lang.lang() === 'en' ? 'Experience' : 'Professionnelle' }}</span></h2>
+  <p class="intro">{{ lang.t().exp.intro }}</p>
+
+  <!-- Alternating Timeline -->
+  <div class="timeline">
+    @for (role of lang.t().exp.roles; track role.title; let i = $index) {
+      <div class="timeline-entry" [class.right]="i % 2 !== 0">
+        <!-- Card -->
+        <div class="timeline-card">
+          <div class="entry-date">{{ role.date }}</div>
+          <h3>{{ role.title }}</h3>
+          <div class="company-badge">{{ role.company }}</div>
+          <p class="entry-desc">{{ role.desc }}</p>
+          <div class="tag-list">
+            @for (tag of role.tags; track tag) {
+              <span class="tag">{{ tag }}</span>
+            }
+          </div>
+        </div>
+
+        <!-- Center dot -->
+        <div class="timeline-dot">
+          <div class="dot-inner">{{ i + 1 }}</div>
+        </div>
+
+        <!-- Spacer -->
+        <div class="timeline-spacer"></div>
+      </div>
+    }
+    <div class="timeline-line"></div>
+  </div>
+
+  <div class="page-ctas">
+    <a routerLink="/projects" class="btn btn-primary">{{ lang.t().exp.cta1 }}</a>
+    <a routerLink="/contact" class="btn btn-secondary">{{ lang.t().exp.cta2 }}</a>
+  </div>
+</div>

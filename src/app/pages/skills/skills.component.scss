@@ -1,0 +1,107 @@
+h2 { margin-bottom: 20px; }
+
+.intro {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 580px;
+  margin-bottom: 60px;
+  line-height: 1.8;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ─── Ticker ─── */
+.ticker-wrap {
+  overflow: hidden;
+  margin: 0 -40px 64px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: rgba(99, 102, 241, 0.03);
+}
+
+.ticker-track {
+  display: flex;
+  gap: 0;
+  white-space: nowrap;
+  animation: ticker-scroll 30s linear infinite;
+}
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-item {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  white-space: nowrap;
+  &:hover { color: var(--text); }
+}
+
+.dot { color: var(--accent-indigo); }
+
+/* ─── Skills Grid ─── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 64px;
+}
+
+.skill-group {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  &:hover { border-color: var(--border-strong); box-shadow: 0 8px 32px rgba(99,102,241,0.1); }
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.group-icon {
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 10px;
+}
+
+h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.tag {
+  transition: all 0.2s;
+  &:hover { border-color: var(--accent-indigo); color: var(--accent-light, #818cf8); }
+}
+
+.page-ctas { display: flex; gap: 12px; justify-content: center; }
+
+@media (max-width: 768px) {
+  .ticker-wrap { margin: 0 -20px 48px; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .page-ctas { flex-direction: column; }
+  .intro { text-align: left; }
+}

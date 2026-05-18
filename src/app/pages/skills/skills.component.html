@@ -1,0 +1,40 @@
+<div class="page-container animate-in">
+  <div class="page-label">// skills</div>
+  <div class="section-eyebrow">{{ lang.lang() === 'en' ? 'MY TOOLKIT' : 'MA BOÎTE À OUTILS' }}</div>
+  <h2>{{ lang.lang() === 'en' ? 'Skills &' : 'Compétences &' }} <span class="grad-section">{{ lang.lang() === 'en' ? 'Stack' : 'Stack' }}</span></h2>
+  <p class="intro">{{ lang.t().skills.intro }}</p>
+
+  <!-- Ticker -->
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      @for (item of tickerItems; track item) {
+        <span class="ticker-item">{{ item }} <span class="dot">•</span></span>
+      }
+      @for (item of tickerItems; track item + '_dup') {
+        <span class="ticker-item">{{ item }} <span class="dot">•</span></span>
+      }
+    </div>
+  </div>
+
+  <!-- Skill category grid -->
+  <div class="skills-grid">
+    @for (cat of lang.t().skills.categories; track cat.name) {
+      <div class="skill-group">
+        <div class="group-header">
+          <span class="group-icon">{{ getCatIcon(cat.name) }}</span>
+          <h3>{{ cat.name }}</h3>
+        </div>
+        <div class="tag-list">
+          @for (item of cat.items; track item) {
+            <span class="tag">{{ item }}</span>
+          }
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="page-ctas">
+    <a routerLink="/contact" class="btn btn-primary">{{ lang.t().skills.cta1 }}</a>
+    <a routerLink="/projects" class="btn btn-secondary">{{ lang.t().skills.cta2 }}</a>
+  </div>
+</div>
