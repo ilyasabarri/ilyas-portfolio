@@ -14,6 +14,7 @@ export class ProjectsComponent {
   lang = inject(LanguageService);
 
   screenshots = [
+    'assets/proj-northcreative.png',
     'assets/proj-darsakkinah.png',
     'assets/proj-sinosource.png',
     'assets/proj-ecobrique.png',
