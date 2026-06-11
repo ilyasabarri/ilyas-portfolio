@@ -38,28 +38,25 @@
       <button class="lang-btn" (click)="lang.toggle()">{{ lang.lang() === 'en' ? 'FR' : 'EN' }}</button>
     </div>
   </div>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" [class.open]="mobileOpen()">
-    <button class="hamburger" (click)="toggleMobile()" [class.open]="mobileOpen()">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="mobile-links" [class.show]="mobileOpen()">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="closeMobile()">{{ lang.t().nav.home }}</a>
-      <a routerLink="/about" routerLinkActive="active" (click)="closeMobile()">{{ lang.t().nav.about }}</a>
-      <a routerLink="/experience" routerLinkActive="active" (click)="closeMobile()">{{ lang.t().nav.experience }}</a>
-      <a routerLink="/projects" routerLinkActive="active" (click)="closeMobile()">{{ lang.t().nav.projects }}</a>
-      <a routerLink="/skills" routerLinkActive="active" (click)="closeMobile()">{{ lang.t().nav.skills }}</a>
-      <a routerLink="/contact" routerLinkActive="active" (click)="closeMobile()">{{ lang.t().nav.contact }}</a>
-      <button class="lang-btn-mobile" (click)="lang.toggle(); closeMobile()">{{ lang.lang() === 'en' ? '🇫🇷 Français' : '🇬🇧 English' }}</button>
-      <button class="lang-btn-mobile theme-btn-mobile" (click)="theme.toggle()">
-        {{ theme.isDark() ? '☀️ Light Mode' : '🌙 Dark Mode' }}
-      </button>
-    </div>
-  </div>
 </nav>
 
-<!-- Mobile hamburger (always visible) -->
+<!-- Mobile hamburger (always visible on mobile) -->
 <button class="hamburger-fixed" (click)="toggleMobile()" [class.open]="mobileOpen()">
   <span></span><span></span><span></span>
 </button>
+
+<!-- Mobile Menu (outside nav so it's never hidden) -->
+<div class="mobile-menu" [class.open]="mobileOpen()">
+  <div class="mobile-links">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="closeMobile()">{{ lang.t().nav.home }}</a>
+    <a routerLink="/about" routerLinkActive="active" (click)="closeMobile()">{{ lang.t().nav.about }}</a>
+    <a routerLink="/experience" routerLinkActive="active" (click)="closeMobile()">{{ lang.t().nav.experience }}</a>
+    <a routerLink="/projects" routerLinkActive="active" (click)="closeMobile()">{{ lang.t().nav.projects }}</a>
+    <a routerLink="/skills" routerLinkActive="active" (click)="closeMobile()">{{ lang.t().nav.skills }}</a>
+    <a routerLink="/contact" routerLinkActive="active" (click)="closeMobile()">{{ lang.t().nav.contact }}</a>
+    <button class="lang-btn-mobile" (click)="lang.toggle(); closeMobile()">{{ lang.lang() === 'en' ? '🇫🇷 Français' : '🇬🇧 English' }}</button>
+    <button class="lang-btn-mobile theme-btn-mobile" (click)="theme.toggle()">
+      {{ theme.isDark() ? '☀️ Light Mode' : '🌙 Dark Mode' }}
+    </button>
+  </div>
+</div>

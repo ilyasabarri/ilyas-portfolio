@@ -14,13 +14,13 @@ export class ProjectsComponent {
   lang = inject(LanguageService);
 
   screenshots = [
-    '/assets/proj-darsakkinah.png',
-    '/assets/proj-sinosource.png',
-    '/assets/proj-ecobrique.png',
-    '/assets/proj-product1libya.png',
-    '/assets/proj-sewingmachine.png',
-    '/assets/proj-chargingcable.png',
-    '/assets/proj-darsakkinah-app.png',
+    'assets/proj-darsakkinah.png',
+    'assets/proj-sinosource.png',
+    'assets/proj-ecobrique.png',
+    'assets/proj-product1libya.png',
+    'assets/proj-sewingmachine.png',
+    'assets/proj-chargingcable.png',
+    'assets/proj-darsakkinah-app.png',
   ];
 
   getScreenshot(i: number): string {
